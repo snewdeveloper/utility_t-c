@@ -1,7 +1,9 @@
 /* ---------------------------------------------------------------------------
-   Whiteboard — legal pages
-   Palette and type mirror the app's own "Ink" identity, so these pages read as
-   part of the product rather than a detached legal boilerplate site.
+   Legal pages — shared across every app in this repo.
+   The default palette and type mirror Whiteboard's "Ink" identity, so those
+   pages read as part of the product rather than detached boilerplate. Each
+   further app re-points the same tokens under a body class (see the end of
+   this file) instead of forking the stylesheet.
    --------------------------------------------------------------------------- */
 
 :root {
@@ -391,4 +393,41 @@ footer.foot {
   font-family: var(--display);
   font-size: 14px;
   color: var(--muted);
+}
+
+
+/* ---------------------------------------------------------------------------
+   Per-app palettes. Structure and type stay shared; only the tokens move, so
+   an app's legal pages carry its own identity without a second stylesheet.
+   --------------------------------------------------------------------------- */
+
+/* Folio — the "Toolbox" identity: warm ivory ground, vermilion accent. */
+body.app-folio {
+  --ground:       #FBFAF7;
+  --surface:      #FFFFFF;
+  --surface-sunk: #F0ECE4;
+  --text:         #17161A;
+  --muted:        #5C5A63;
+  --border:       #E8E3DA;
+  --accent:       #BE4318;
+  --on-accent:    #FFFFFF;
+  --flag:         #8A4A2E;
+  --flag-soft:    #FBE9DF;
+  --flag-border:  #E8BCA4;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.app-folio {
+    --ground:       #14110F;
+    --surface:      #1E1A17;
+    --surface-sunk: #13100E;
+    --text:         #F6F2EC;
+    --muted:        #9C948A;
+    --border:       #2E2823;
+    --accent:       #E2673B;
+    --on-accent:    #14110F;
+    --flag:         #E59A77;
+    --flag-soft:    #2E1D14;
+    --flag-border:  #5C3A26;
+  }
 }
