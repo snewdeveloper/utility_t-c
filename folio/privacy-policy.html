@@ -150,13 +150,16 @@
         <tr><td>Advertising ID</td><td>Used by the AdMob SDK to select and measure ads. Not used by the app itself.</td></tr>
         <tr><td>Notifications</td><td>Progress and completion notices for a job you started, so a long document can finish after you leave the screen.</td></tr>
         <tr><td>Foreground service (data sync)</td><td>Lets a running job finish in the background instead of being killed when you switch apps.</td></tr>
-        <tr><td>All files access <em>(optional)</em></td><td>Only for the Files tab&rsquo;s &ldquo;On this phone&rdquo; list, which shows PDFs other apps created. It is requested when you open that list and tap Allow &mdash; never at launch &mdash; and declining it leaves every other part of the app working.</td></tr>
+        <tr><td>Read storage <em>(Android 10 and below only)</em></td><td>Lets the Files tab&rsquo;s &ldquo;On this phone&rdquo; list show the PDFs already on your device. Requested from that screen, never at launch.</td></tr>
       </tbody>
     </table>
   </div>
-  <p>Folio does <strong>not</strong> request your contacts, location, microphone, call logs or SMS.
-    Apart from the optional list above, the app sees only the files you hand it through the system
-    picker, a share, or &ldquo;Open with&rdquo;.</p>
+  <p>Folio does <strong>not</strong> request your contacts, location, microphone, call logs or SMS,
+    and it does <strong>not</strong> request all-files access. On Android 11 and above there is no
+    permission that would let it see other apps&rsquo; documents, and we deliberately do not ask for
+    the one that exists: the &ldquo;On this phone&rdquo; list there shows the PDFs Folio itself
+    created, and everything else is opened through the system picker. Apart from that, the app sees
+    only the files you hand it through the picker, a share, or &ldquo;Open with&rdquo;.</p>
 
   <h2 id="s8"><span class="num">8</span>Sharing and export</h2>
   <p>When you share or export a document, Android hands it to the app you pick. What happens to it
