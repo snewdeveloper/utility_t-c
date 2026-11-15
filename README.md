@@ -12,7 +12,7 @@ styles.css              shared stylesheet — all apps use it
 whiteboard/
   privacy-policy.html   ← URL for Play Console
   terms.html
-folio/
+pagely/
   privacy-policy.html   ← URL for Play Console
   terms.html
 ```
@@ -31,8 +31,8 @@ URLs become:
 https://snewdeveloper.github.io/utility_t-c/
 https://snewdeveloper.github.io/utility_t-c/whiteboard/privacy-policy.html
 https://snewdeveloper.github.io/utility_t-c/whiteboard/terms.html
-https://snewdeveloper.github.io/utility_t-c/folio/privacy-policy.html
-https://snewdeveloper.github.io/utility_t-c/folio/terms.html
+https://snewdeveloper.github.io/utility_t-c/pagely/privacy-policy.html
+https://snewdeveloper.github.io/utility_t-c/pagely/terms.html
 ```
 
 Give the privacy policy URL to Play Console under *Policy → App content → Privacy policy*, and in
@@ -63,7 +63,7 @@ policy false.
 Source of truth for the Whiteboard text (with commentary on why each section says what it does)
 lives in the app repo under `legal/` and `docs/`.
 
-For Folio, the equivalent source lives in the app repo under `PRIVACY.md` and `docs/`. The current
+For Pagely, the equivalent source lives in the app repo under `PRIVACY.md` and `docs/`. The current
 documents assert that no document content leaves the device, that the app ships no analytics
 provider and no crash reporter, and that text recognition runs on-device. Adding Firebase, a
 backend, or any cloud processing would make the published policy false and must be accompanied by

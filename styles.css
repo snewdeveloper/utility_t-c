@@ -401,8 +401,8 @@ footer.foot {
    an app's legal pages carry its own identity without a second stylesheet.
    --------------------------------------------------------------------------- */
 
-/* Folio — the "Toolbox" identity: warm ivory ground, vermilion accent. */
-body.app-folio {
+/* Pagely — the "Toolbox" identity: warm ivory ground, vermilion accent. */
+body.app-pagely {
   --ground:       #FBFAF7;
   --surface:      #FFFFFF;
   --surface-sunk: #F0ECE4;
@@ -417,7 +417,7 @@ body.app-folio {
 }
 
 @media (prefers-color-scheme: dark) {
-  body.app-folio {
+  body.app-pagely {
     --ground:       #14110F;
     --surface:      #1E1A17;
     --surface-sunk: #13100E;
