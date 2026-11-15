@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foreground service demonstration — Pagely</title>
+<meta name="description" content="How the Pagely Android app uses FOREGROUND_SERVICE_DATA_SYNC: a user-started document job that finishes after the user leaves the screen.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23BE4318'/><path d='M34 24h24l12 12v40H34z' fill='none' stroke='white' stroke-width='7' stroke-linejoin='round'/><path d='M58 24v12h12' fill='none' stroke='white' stroke-width='7' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .player { margin: 28px 0; text-align: center; }
+  .player video {
+    width: 100%; max-width: 340px; border-radius: 18px;
+    border: 1px solid var(--border); background: #000;
+  }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 44px; margin-bottom: 14px; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0;
+    width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center;
+    background: var(--surface-sunk); color: var(--accent);
+    font-family: var(--display); font-weight: 700; font-size: 14px;
+  }
+</style>
+</head>
+<body class="app-pagely">
+
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="wordmark" href="../index.html">Pagely <span class="sub">Foreground service</span></a>
+    <nav class="docnav" aria-label="Documents">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+
+  <h1>FOREGROUND_SERVICE_DATA_SYNC</h1>
+  <p class="dateline">Pagely &mdash; PDF Tools &amp; Editor &nbsp;·&nbsp; com.sknewdev.folio</p>
+
+  <p class="lede">Pagely declares <code>FOREGROUND_SERVICE_DATA_SYNC</code> for one purpose: a
+    document job the user has started must be able to finish after they leave the screen. The task
+    category is <strong>local processing</strong>. No network access is involved.</p>
+
+  <section class="panel">
+    <h2>What the service does</h2>
+    <p>When the user runs a tool &mdash; merging, compressing, converting, text recognition,
+      watermarking and so on &mdash; the work runs in a <code>WorkManager</code> worker wrapped in a
+      foreground service, with an ongoing notification showing progress and offering cancellation.</p>
+    <p>Without it, Android would stop the job the moment the user switched away, and a large
+      document would be lost halfway through. <strong>All processing is local to the device</strong>;
+      the app has no server and uploads nothing.</p>
+  </section>
+
+  <div class="player">
+    <video controls playsinline preload="metadata" src="foreground-service-demo.mp4"></video>
+  </div>
+
+  <h2>What the recording shows</h2>
+  <ol class="steps">
+    <li>The user opens Pagely and chooses the <strong>PDF&nbsp;&rarr;&nbsp;Images</strong> tool.</li>
+    <li>They pick a 500-page PDF from their own storage and start the export.</li>
+    <li>They leave the app immediately, returning to the home screen.</li>
+    <li>The notification shade shows the ongoing <strong>foreground-service notification</strong>
+      with live progress, while the app is in the background.</li>
+    <li>The job completes in the background and a completion notification appears. All 500 images
+      were written.</li>
+  </ol>
+
+  <p class="note">If the recording does not play in your browser, the file is served directly at
+    <a href="foreground-service-demo.mp4">foreground-service-demo.mp4</a> (H.264 MP4).</p>
+
+  <h2>Contact</h2>
+  <div class="contact">
+    <div class="org">SkIndie Dev</div>
+    Tamil Nadu, India<br>
+    <a href="mailto:snewdeveloper@gmail.com">snewdeveloper@gmail.com</a>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span>Pagely &mdash; published by SkIndie Dev, Tamil Nadu, India.</span>
+    <span><a href="privacy-policy.html">Privacy Policy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
