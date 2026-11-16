@@ -431,3 +431,35 @@ body.app-pagely {
     --flag-border:  #5C3A26;
   }
 }
+
+/* Rounds — Neon Gym: navy ground, lime accent. Lime fails contrast on white, so light mode uses a
+   deep olive-green for links and numbers and keeps lime for the dark scheme the app itself uses. */
+body.app-rounds {
+  --ground:       #F7F8F3;
+  --surface:      #FFFFFF;
+  --surface-sunk: #ECEEE5;
+  --text:         #0B1020;
+  --muted:        #545B6B;
+  --border:       #E1E4D8;
+  --accent:       #4A6B00;
+  --on-accent:    #FFFFFF;
+  --flag:         #8A5A00;
+  --flag-soft:    #FFF3D6;
+  --flag-border:  #E9C980;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.app-rounds {
+    --ground:       #0B1020;
+    --surface:      #131A2E;
+    --surface-sunk: #080C18;
+    --text:         #EEF2FA;
+    --muted:        #9AA3B8;
+    --border:       #222B44;
+    --accent:       #C6FF3D;
+    --on-accent:    #0B1020;
+    --flag:         #FFB627;
+    --flag-soft:    #2A2210;
+    --flag-border:  #5C4614;
+  }
+}

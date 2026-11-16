@@ -15,6 +15,9 @@ whiteboard/
 pagely/
   privacy-policy.html   ← URL for Play Console
   terms.html
+rounds/
+  privacy-policy.html   ← URL for Play Console
+  terms.html
 ```
 
 One folder per app, sharing one stylesheet. Apps get separate documents rather than one combined
@@ -33,6 +36,8 @@ https://snewdeveloper.github.io/utility_t-c/whiteboard/privacy-policy.html
 https://snewdeveloper.github.io/utility_t-c/whiteboard/terms.html
 https://snewdeveloper.github.io/utility_t-c/pagely/privacy-policy.html
 https://snewdeveloper.github.io/utility_t-c/pagely/terms.html
+https://snewdeveloper.github.io/utility_t-c/rounds/privacy-policy.html
+https://snewdeveloper.github.io/utility_t-c/rounds/terms.html
 ```
 
 Give the privacy policy URL to Play Console under *Policy → App content → Privacy policy*, and in
@@ -68,3 +73,11 @@ documents assert that no document content leaves the device, that the app ships 
 provider and no crash reporter, and that text recognition runs on-device. Adding Firebase, a
 backend, or any cloud processing would make the published policy false and must be accompanied by
 a rewrite of sections 2, 5 and 13 of the privacy policy in the same release.
+
+For Rounds, the documents assert that training history never leaves the device except through
+Android backup and the user's own CSV export, that the app ships no analytics provider and no crash
+reporter, and that the only network use is ads and billing. Adding Crashlytics, Firebase Analytics,
+Health Connect or any server would make the published policy false and must be accompanied by a
+rewrite of sections 2, 7 and 14 of the privacy policy in the same release. "Rounds" is the working
+name; if the app ships under another name, rename the folder and the copy before submitting the URL
+to Play Console.
